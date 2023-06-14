@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/icon.png">
+    <title>Политический сервер - POLITMC</title>
+</head>
+
+<body>
+    <div id="app">
+    <header>
+        <nav class="nav-bar">
+            <div class="container-header">
+                <div class="logo">
+                    <a href="index.html"><img src="img/logo.png" alt="logo" width="275px"></a>
+                </div>
+                <div class="burger">
+                    <img @click="burger = !burger" src="img/6228b5a8cd7aad2465a6627a_134216_menu_lines_hamburger_icon-p-2600.png" width="30px"/>
+                </div>
+                <div :style="{display: burger ? 'block' : 'none'}" class="burger-menu">
+                    <img @click="burger = !burger" src="img/6228b5a8cd7aad2465a6627a_134216_menu_lines_hamburger_icon-p-2600.png" width="70px">
+                    <div class="nav-list1">
+                        <a @click="burger = false" class="nav-item-a1">
+                            <li class="nav-item1">О нас</li>
+                        </a>
+                        <a @click="burger = false" class="nav-item-a1">
+                            <li class="nav-item1">Карта</li>
+                        </a>
+                        <a @click="burger = false" class="nav-item-a1">
+                            <li class="nav-item1">Донат</li>
+                        </a>
+                        <a @click="burger = false" class="nav-item-a1">
+                            <li class="nav-item1">Контакты</li>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-list">
+                    <a href="#1" class="nav-item-a">
+                        <li class="nav-item">О нас</li>
+                    </a>
+                    <a href="#" class="nav-item-a">
+                        <li class="nav-item">Карта</li>
+                    </a>
+                    <a href="#" class="nav-item-a">
+                        <li class="nav-item">Донат</li>
+                    </a>
+                    <a href="#" class="nav-item-a">
+                        <li class="nav-item">Контакты</li>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main :style='{ display: burger ? "none" : "block" }'>
+        <section class="main-content">
+            <div class="container-content">
+                <div class="main-content-left">
+                    <h1 class="content-headline">ПОСТРОЙ</h1>
+                    <h1 class="content-headline">СВОЙ ГОРОД В МАЙНКРАФТ</h1>
+                    <a class="content-btn"><button type="button" onclick="myFunction()">Скопировать IP</button></a>
+                    </div>
+            </div>
+        </section>
+        <section class="about-us" id="1">
+            <div class="about-us-container">
+                <h2 class="about-us-headline">О нас</h2>
+                <div class="about-us-texts">
+                    <p class="about-us-text">NordSky — это виртуальная авиакомпания европейской части России, работающая в своей сфере более двух лет. Наша авиакомпания была основана еще в начале 2021 года и продолжает свою деятельность до сих пор. Средний возраст нашего флота составляет всего 5,3 месяца. Сейчас в качестве хабов используются Москва (Шереметьево), Санкт-Петербург, Красноярск и Архангельск. С получением новых воздушных судов будут открываться и новые направления, хабы.</p>
+                </div>
+            </div>
+        </section>
+        <section class="adv">
+            <div class="adv-container">
+                <h2 class="adv-headline">Почему стоит играть у нас?</h2>
+                <ul class="adv-list">
+                    <li class="adv-item">* Один из старейших политических серверов, мы знаем, что это</li>
+                    <li class="adv-item">* Высокий онлайн для интересной игры</li>
+                    <li class="adv-item">* Карта реальной земли, создавайте реальные государства</li>
+                    <li class="adv-item">* Система войн для выяснения отношений</li>
+                    <li class="adv-item">* Оружие для нескучных войн</li>
+                </ul>
+                <a href="https://vk.com/nordsky_va?w=app5619682_-202451545" target="_blank"><button class="adv-button">Подать заявку</button></a>
+            </div>
+        </section>
+        <section class="company-fleet" id="2">
+            <div class="section-wrapper">
+                <h2>ФЛОТ</h2>
+                <div class="content">
+                    <div class="content-text">
+                        <div class="content-text_inner">
+                            <h3>1. Дальность<br/>
+                                2. Точность<br/>
+                                3. Простота</h3>
+                            <h4>Наша главная цель — это обеспечить удобства и комфорт нашим пилотам.</h4>
+                            <p>Средний возраст нашего флота составляет всего 5,3 месяца.</p>
+                        </div>
+                    </div>
+                    <div class="fleet-nav-div">
+                    <div class="navigation-image">
+                        <b> {{ fleet[currentFleet].name }} </b>
+                        <span>Количество: {{ fleet[currentFleet].value }} </span>
+                        <div class="arrows">
+                            <svg @click="changeFleet(true)" width="29" height="22" viewbox="0 0 29 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.875 1L27 11M27 11L16.875 21M27 11L0 11" stroke="#151515" stroke-width="2"/>
+                            </svg>
+                            <svg @click="changeFleet(false)" width="29" height="22" viewbox="0 0 29 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.125 1L2 11M2 11L12.125 21M2 11L29 11" stroke="#151515" stroke-opacity="0.4" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <img :src="fleet[currentFleet].image" alt="Фото базы" srcset=""/>
+                </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+        <div class="spp">
+            <div class="social">
+                <h3 class="footer-headline">Социальные сети</h3>
+                <ul class="footer-list">
+                    <a href="https://youtube.com/@nordsky-virtual" target="_blank"><li class="footer-item">YouTube</li></a>
+                    <a href="https://vk.com/nordsky_va" target="_blank"><li class="footer-item">Вконтакте</li></a>
+                    <a href="https://discord.gg/mPm7T5Z9P4" target="_blank"><li class="footer-item">Discord</li></a>
+                </ul>
+            </div>
+            <div class="politic">
+                <h3 class="footer-headline">Политика компании</h3>
+                <ul class="footer-list">
+                    <a download href="скачать/Устав.pdf"><li class="footer-item">Устав авиакомпании</li></a>
+                    <a href="mailto:nordskyvirtual@gmail.com"><li class="footer-item">nordskyvirtual@gmail.com</li></a>
+                </ul>
+            </div>
+            <div class="partners">
+                <h3 class="footer-headline">Наши партнеры</h3>
+                <a href="https://vatsim.net/" target="_blank"><img src="img/VATSIM_Logo_White_No_Tagline_500px 1.png" width="164px" height="56px"></a>
+            </div>
+        </div>
+        <div class="web">
+            <p class="web-text">MADE WITH ❤ BY DANCHIK & CHEXXXUNOW</p>
+        </div>
+    </div>
+    </footer>
+</div>
+    <script type="module">
+        import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js'
+        const swiper = new Swiper('.swiper', {
+            direction: 'horizontal',
+            loop: false,
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="Vue.js"></script>
+    <script>
+        function myFunction() {
+            var copyText = document.getElementById("myInput");
+            copyText.select("1234");
+            document.execCommand("copy");
+            alert("Copied the text: ");
+        }
+    </script>
+</body>
+
+</html>
